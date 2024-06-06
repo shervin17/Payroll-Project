@@ -15,6 +15,9 @@ namespace PayrollV3
         List<EmployeeCalendarDates> payable_Dates;
         DailyTimeRecordRepository dailyTimeRecordRepository = DailyTimeRecordRepository.Instance();
         List<DailyTimeRecord> daily_time_records;
+        Payroll payrollObj;
+        EmployeePayrollDetails payrollDetails;
+
         public PayrollCalculatorfrm(Employee employee)
         {
             InitializeComponent();
@@ -35,17 +38,26 @@ namespace PayrollV3
 
         private void comboBox1_payroll_period_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             selected = comboBox1_payroll_period.SelectedItem as PayrollPeriod;
-            payable_Dates = calendarDatesRepo.GetPayableDates(selected.Payroll_period_id);
+            
+            
             try 
             {
+                payable_Dates = calendarDatesRepo.GetPayableDates(selected.Payroll_period_id);
                 daily_time_records = dailyTimeRecordRepository.findDTRbyEmployeeID(employee1.Id, selected);
+                payrollDetails = EmployeePayrollDetailsRepo.Instance().getByID(employee1.Payroll_details_id);
                 dataGridView1.DataSource = daily_time_records;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("an erro has occured "+ex.Message);
+                MessageBox.Show("an error has occured "+ex.Message);
             }
+            
+            payrollObj = new Payroll(daily_time_records, payable_Dates,payrollDetails);
+            MessageBox.Show(payrollDetails.ToString());
+            AttendanceSummary attendanceSummary = payrollObj.GetAttendanceSummary();
+            MessageBox.Show(attendanceSummary.ToString());
         }
     }
 }

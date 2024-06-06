@@ -35,6 +35,11 @@ namespace PayrollV3
         public decimal Salary { get; set; }
         public decimal Daily_rate { get; set; }
         public decimal Hourly_rate { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Payroll_details_id} , {Salary}, {Daily_rate}, {Hourly_rate} ";
+        }
     }
     public class Leaves
     { 
