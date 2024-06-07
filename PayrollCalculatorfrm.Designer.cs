@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1_payroll_period = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,49 +46,62 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.days_of_work_Field = new System.Windows.Forms.TextBox();
+            this.Holiday_Credited_field = new System.Windows.Forms.TextBox();
+            this.Special_Hol_field = new System.Windows.Forms.TextBox();
+            this.PayableOTmin_Field = new System.Windows.Forms.TextBox();
+            this.OvertimePay_field = new System.Windows.Forms.TextBox();
+            this.days_absent_field = new System.Windows.Forms.TextBox();
+            this.TotalMinsLate_field = new System.Windows.Forms.TextBox();
+            this.DeductibleLateMins_Field = new System.Windows.Forms.TextBox();
+            this.Deduction_due_toLate_field = new System.Windows.Forms.TextBox();
+            this.TotalUnderTimeMins_Field = new System.Windows.Forms.TextBox();
+            this.Deductible_under_time_mins_field = new System.Windows.Forms.TextBox();
+            this.Deduction_due_to_underTimeField = new System.Windows.Forms.TextBox();
+            this.Semi_Monthly_Salary_field = new System.Windows.Forms.TextBox();
+            this.GrossPayField = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.SSSdeductionField = new System.Windows.Forms.TextBox();
+            this.Philhealth_Deduction_field = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.PagIbigDeduction_field = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.TotalBenefitsDeductionField = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.VL_numeric = new System.Windows.Forms.NumericUpDown();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.SL_numeric = new System.Windows.Forms.NumericUpDown();
+            this.label28 = new System.Windows.Forms.Label();
+            this.Emergency_Leave_numeric = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.Bereavement_numeric = new System.Windows.Forms.NumericUpDown();
+            this.AdjustmentAmountField = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.Previous_Grosspay_field = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VL_numeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SL_numeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Emergency_Leave_numeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bereavement_numeric)).BeginInit();
             this.SuspendLayout();
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(485, 820);
+            this.button3.Location = new System.Drawing.Point(627, 944);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -117,7 +128,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 741);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 901);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -244,114 +255,114 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(48, 360);
+            this.label15.Location = new System.Drawing.Point(57, 292);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(129, 16);
             this.label15.TabIndex = 19;
             this.label15.Text = "Semi Monthly Salary";
             // 
-            // textBox1
+            // days_of_work_Field
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 107);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 22);
-            this.textBox1.TabIndex = 20;
+            this.days_of_work_Field.Location = new System.Drawing.Point(192, 107);
+            this.days_of_work_Field.Name = "days_of_work_Field";
+            this.days_of_work_Field.Size = new System.Drawing.Size(163, 22);
+            this.days_of_work_Field.TabIndex = 20;
             // 
-            // textBox2
+            // Holiday_Credited_field
             // 
-            this.textBox2.Location = new System.Drawing.Point(192, 144);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(163, 22);
-            this.textBox2.TabIndex = 21;
+            this.Holiday_Credited_field.Location = new System.Drawing.Point(192, 145);
+            this.Holiday_Credited_field.Name = "Holiday_Credited_field";
+            this.Holiday_Credited_field.Size = new System.Drawing.Size(163, 22);
+            this.Holiday_Credited_field.TabIndex = 21;
             // 
-            // textBox3
+            // Special_Hol_field
             // 
-            this.textBox3.Location = new System.Drawing.Point(192, 178);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(163, 22);
-            this.textBox3.TabIndex = 22;
+            this.Special_Hol_field.Location = new System.Drawing.Point(192, 178);
+            this.Special_Hol_field.Name = "Special_Hol_field";
+            this.Special_Hol_field.Size = new System.Drawing.Size(163, 22);
+            this.Special_Hol_field.TabIndex = 22;
             // 
-            // textBox4
+            // PayableOTmin_Field
             // 
-            this.textBox4.Location = new System.Drawing.Point(192, 216);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(163, 22);
-            this.textBox4.TabIndex = 23;
+            this.PayableOTmin_Field.Location = new System.Drawing.Point(192, 216);
+            this.PayableOTmin_Field.Name = "PayableOTmin_Field";
+            this.PayableOTmin_Field.Size = new System.Drawing.Size(163, 22);
+            this.PayableOTmin_Field.TabIndex = 23;
             // 
-            // textBox5
+            // OvertimePay_field
             // 
-            this.textBox5.Location = new System.Drawing.Point(192, 250);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(163, 22);
-            this.textBox5.TabIndex = 24;
+            this.OvertimePay_field.Location = new System.Drawing.Point(192, 250);
+            this.OvertimePay_field.Name = "OvertimePay_field";
+            this.OvertimePay_field.Size = new System.Drawing.Size(163, 22);
+            this.OvertimePay_field.TabIndex = 24;
             // 
-            // textBox6
+            // days_absent_field
             // 
-            this.textBox6.Location = new System.Drawing.Point(566, 107);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(163, 22);
-            this.textBox6.TabIndex = 25;
+            this.days_absent_field.Location = new System.Drawing.Point(566, 107);
+            this.days_absent_field.Name = "days_absent_field";
+            this.days_absent_field.Size = new System.Drawing.Size(163, 22);
+            this.days_absent_field.TabIndex = 25;
             // 
-            // textBox7
+            // TotalMinsLate_field
             // 
-            this.textBox7.Location = new System.Drawing.Point(566, 144);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(163, 22);
-            this.textBox7.TabIndex = 26;
+            this.TotalMinsLate_field.Location = new System.Drawing.Point(566, 144);
+            this.TotalMinsLate_field.Name = "TotalMinsLate_field";
+            this.TotalMinsLate_field.Size = new System.Drawing.Size(163, 22);
+            this.TotalMinsLate_field.TabIndex = 26;
             // 
-            // textBox8
+            // DeductibleLateMins_Field
             // 
-            this.textBox8.Location = new System.Drawing.Point(566, 181);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(163, 22);
-            this.textBox8.TabIndex = 27;
+            this.DeductibleLateMins_Field.Location = new System.Drawing.Point(566, 181);
+            this.DeductibleLateMins_Field.Name = "DeductibleLateMins_Field";
+            this.DeductibleLateMins_Field.Size = new System.Drawing.Size(163, 22);
+            this.DeductibleLateMins_Field.TabIndex = 27;
             // 
-            // textBox9
+            // Deduction_due_toLate_field
             // 
-            this.textBox9.Location = new System.Drawing.Point(566, 216);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(163, 22);
-            this.textBox9.TabIndex = 28;
+            this.Deduction_due_toLate_field.Location = new System.Drawing.Point(566, 216);
+            this.Deduction_due_toLate_field.Name = "Deduction_due_toLate_field";
+            this.Deduction_due_toLate_field.Size = new System.Drawing.Size(163, 22);
+            this.Deduction_due_toLate_field.TabIndex = 28;
             // 
-            // textBox10
+            // TotalUnderTimeMins_Field
             // 
-            this.textBox10.Location = new System.Drawing.Point(566, 250);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(163, 22);
-            this.textBox10.TabIndex = 29;
+            this.TotalUnderTimeMins_Field.Location = new System.Drawing.Point(566, 250);
+            this.TotalUnderTimeMins_Field.Name = "TotalUnderTimeMins_Field";
+            this.TotalUnderTimeMins_Field.Size = new System.Drawing.Size(163, 22);
+            this.TotalUnderTimeMins_Field.TabIndex = 29;
             // 
-            // textBox11
+            // Deductible_under_time_mins_field
             // 
-            this.textBox11.Location = new System.Drawing.Point(566, 286);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(163, 22);
-            this.textBox11.TabIndex = 30;
+            this.Deductible_under_time_mins_field.Location = new System.Drawing.Point(566, 286);
+            this.Deductible_under_time_mins_field.Name = "Deductible_under_time_mins_field";
+            this.Deductible_under_time_mins_field.Size = new System.Drawing.Size(163, 22);
+            this.Deductible_under_time_mins_field.TabIndex = 30;
             // 
-            // textBox12
+            // Deduction_due_to_underTimeField
             // 
-            this.textBox12.Location = new System.Drawing.Point(566, 319);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(163, 22);
-            this.textBox12.TabIndex = 31;
+            this.Deduction_due_to_underTimeField.Location = new System.Drawing.Point(566, 319);
+            this.Deduction_due_to_underTimeField.Name = "Deduction_due_to_underTimeField";
+            this.Deduction_due_to_underTimeField.Size = new System.Drawing.Size(163, 22);
+            this.Deduction_due_to_underTimeField.TabIndex = 31;
             // 
-            // textBox13
+            // Semi_Monthly_Salary_field
             // 
-            this.textBox13.Location = new System.Drawing.Point(183, 357);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(163, 22);
-            this.textBox13.TabIndex = 32;
+            this.Semi_Monthly_Salary_field.Location = new System.Drawing.Point(192, 286);
+            this.Semi_Monthly_Salary_field.Name = "Semi_Monthly_Salary_field";
+            this.Semi_Monthly_Salary_field.Size = new System.Drawing.Size(163, 22);
+            this.Semi_Monthly_Salary_field.TabIndex = 32;
             // 
-            // textBox14
+            // GrossPayField
             // 
-            this.textBox14.Location = new System.Drawing.Point(183, 394);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(163, 22);
-            this.textBox14.TabIndex = 33;
+            this.GrossPayField.Location = new System.Drawing.Point(566, 494);
+            this.GrossPayField.Name = "GrossPayField";
+            this.GrossPayField.Size = new System.Drawing.Size(163, 22);
+            this.GrossPayField.TabIndex = 33;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(110, 397);
+            this.label16.Location = new System.Drawing.Point(493, 500);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(67, 16);
             this.label16.TabIndex = 34;
@@ -360,7 +371,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(71, 430);
+            this.label17.Location = new System.Drawing.Point(65, 775);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(106, 16);
             this.label17.TabIndex = 35;
@@ -368,14 +379,14 @@
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(183, 430);
+            this.textBox15.Location = new System.Drawing.Point(181, 769);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(163, 22);
             this.textBox15.TabIndex = 36;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(352, 430);
+            this.button1.Location = new System.Drawing.Point(361, 768);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 37;
@@ -385,7 +396,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(81, 508);
+            this.label18.Location = new System.Drawing.Point(79, 606);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(96, 16);
             this.label18.TabIndex = 38;
@@ -394,29 +405,29 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(36, 486);
+            this.label19.Location = new System.Drawing.Point(116, 545);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(55, 16);
             this.label19.TabIndex = 39;
             this.label19.Text = "Benefits";
             // 
-            // textBox16
+            // SSSdeductionField
             // 
-            this.textBox16.Location = new System.Drawing.Point(183, 505);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(163, 22);
-            this.textBox16.TabIndex = 40;
+            this.SSSdeductionField.Location = new System.Drawing.Point(183, 603);
+            this.SSSdeductionField.Name = "SSSdeductionField";
+            this.SSSdeductionField.Size = new System.Drawing.Size(163, 22);
+            this.SSSdeductionField.TabIndex = 40;
             // 
-            // textBox17
+            // Philhealth_Deduction_field
             // 
-            this.textBox17.Location = new System.Drawing.Point(183, 545);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(163, 22);
-            this.textBox17.TabIndex = 41;
+            this.Philhealth_Deduction_field.Location = new System.Drawing.Point(183, 635);
+            this.Philhealth_Deduction_field.Name = "Philhealth_Deduction_field";
+            this.Philhealth_Deduction_field.Size = new System.Drawing.Size(163, 22);
+            this.Philhealth_Deduction_field.TabIndex = 41;
             // 
             // textBox18
             // 
-            this.textBox18.Location = new System.Drawing.Point(183, 579);
+            this.textBox18.Location = new System.Drawing.Point(183, 663);
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(163, 22);
             this.textBox18.TabIndex = 42;
@@ -424,41 +435,41 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(48, 548);
+            this.label20.Location = new System.Drawing.Point(47, 633);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(127, 16);
             this.label20.TabIndex = 43;
             this.label20.Text = "Philhealth deduction";
             // 
-            // label21
+            // PagIbigDeduction_field
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(48, 585);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(127, 16);
-            this.label21.TabIndex = 44;
-            this.label21.Text = "Philhealth deduction";
+            this.PagIbigDeduction_field.AutoSize = true;
+            this.PagIbigDeduction_field.Location = new System.Drawing.Point(47, 663);
+            this.PagIbigDeduction_field.Name = "PagIbigDeduction_field";
+            this.PagIbigDeduction_field.Size = new System.Drawing.Size(116, 16);
+            this.PagIbigDeduction_field.TabIndex = 44;
+            this.PagIbigDeduction_field.Text = "PagIbig deduction";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(352, 618);
+            this.button2.Location = new System.Drawing.Point(352, 696);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 45;
             this.button2.Text = "apply benefits";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox19
+            // TotalBenefitsDeductionField
             // 
-            this.textBox19.Location = new System.Drawing.Point(183, 619);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(163, 22);
-            this.textBox19.TabIndex = 46;
+            this.TotalBenefitsDeductionField.Location = new System.Drawing.Point(181, 697);
+            this.TotalBenefitsDeductionField.Name = "TotalBenefitsDeductionField";
+            this.TotalBenefitsDeductionField.Size = new System.Drawing.Size(163, 22);
+            this.TotalBenefitsDeductionField.TabIndex = 46;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(30, 621);
+            this.label22.Location = new System.Drawing.Point(30, 697);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(144, 16);
             this.label22.TabIndex = 47;
@@ -467,7 +478,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(113, 691);
+            this.label23.Location = new System.Drawing.Point(119, 810);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(52, 16);
             this.label23.TabIndex = 48;
@@ -475,56 +486,202 @@
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(183, 685);
+            this.textBox20.Location = new System.Drawing.Point(183, 804);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(163, 22);
             this.textBox20.TabIndex = 49;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(352, 685);
+            this.button4.Location = new System.Drawing.Point(361, 804);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 50;
             this.button4.Text = "submit payroll";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(431, 360);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(0, 16);
+            this.label24.TabIndex = 51;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(296, 377);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(80, 16);
+            this.label25.TabIndex = 52;
+            this.label25.Text = "Adjustments";
+            // 
+            // VL_numeric
+            // 
+            this.VL_numeric.Location = new System.Drawing.Point(192, 414);
+            this.VL_numeric.Name = "VL_numeric";
+            this.VL_numeric.Size = new System.Drawing.Size(68, 22);
+            this.VL_numeric.TabIndex = 53;
+            this.VL_numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.VL_numeric.ValueChanged += new System.EventHandler(this.updateLeavesOnUSe);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(68, 416);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(107, 16);
+            this.label26.TabIndex = 54;
+            this.label26.Text = "use available VL";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(68, 451);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(107, 16);
+            this.label27.TabIndex = 55;
+            this.label27.Text = "use available SL";
+            // 
+            // SL_numeric
+            // 
+            this.SL_numeric.Location = new System.Drawing.Point(192, 451);
+            this.SL_numeric.Name = "SL_numeric";
+            this.SL_numeric.Size = new System.Drawing.Size(68, 22);
+            this.SL_numeric.TabIndex = 56;
+            this.SL_numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SL_numeric.ValueChanged += new System.EventHandler(this.updateLeavesOnUSe);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(296, 451);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(189, 16);
+            this.label28.TabIndex = 57;
+            this.label28.Text = "use available emergecy leave";
+            // 
+            // Emergency_Leave_numeric
+            // 
+            this.Emergency_Leave_numeric.Location = new System.Drawing.Point(502, 445);
+            this.Emergency_Leave_numeric.Name = "Emergency_Leave_numeric";
+            this.Emergency_Leave_numeric.Size = new System.Drawing.Size(68, 22);
+            this.Emergency_Leave_numeric.TabIndex = 58;
+            this.Emergency_Leave_numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Emergency_Leave_numeric.ValueChanged += new System.EventHandler(this.updateLeavesOnUSe);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(356, 416);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(129, 16);
+            this.label29.TabIndex = 59;
+            this.label29.Text = "Bereavement Leave";
+            // 
+            // Bereavement_numeric
+            // 
+            this.Bereavement_numeric.Location = new System.Drawing.Point(502, 414);
+            this.Bereavement_numeric.Name = "Bereavement_numeric";
+            this.Bereavement_numeric.Size = new System.Drawing.Size(68, 22);
+            this.Bereavement_numeric.TabIndex = 60;
+            this.Bereavement_numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Bereavement_numeric.ValueChanged += new System.EventHandler(this.updateLeavesOnUSe);
+            // 
+            // AdjustmentAmountField
+            // 
+            this.AdjustmentAmountField.Location = new System.Drawing.Point(192, 500);
+            this.AdjustmentAmountField.Name = "AdjustmentAmountField";
+            this.AdjustmentAmountField.Size = new System.Drawing.Size(163, 22);
+            this.AdjustmentAmountField.TabIndex = 61;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(55, 500);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(119, 16);
+            this.label30.TabIndex = 62;
+            this.label30.Text = "adjustment amount";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(361, 497);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 63;
+            this.button5.Text = "apply";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(6, 579);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(165, 16);
+            this.label31.TabIndex = 64;
+            this.label31.Text = "Previous Payroll grosspay";
+            // 
+            // Previous_Grosspay_field
+            // 
+            this.Previous_Grosspay_field.Location = new System.Drawing.Point(183, 576);
+            this.Previous_Grosspay_field.Name = "Previous_Grosspay_field";
+            this.Previous_Grosspay_field.Size = new System.Drawing.Size(163, 22);
+            this.Previous_Grosspay_field.TabIndex = 65;
+            // 
             // PayrollCalculatorfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 855);
+            this.ClientSize = new System.Drawing.Size(783, 988);
+            this.Controls.Add(this.Previous_Grosspay_field);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.AdjustmentAmountField);
+            this.Controls.Add(this.Bereavement_numeric);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.Emergency_Leave_numeric);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.SL_numeric);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.VL_numeric);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox20);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.textBox19);
+            this.Controls.Add(this.TotalBenefitsDeductionField);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label21);
+            this.Controls.Add(this.PagIbigDeduction_field);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.Philhealth_Deduction_field);
+            this.Controls.Add(this.SSSdeductionField);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox15);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.GrossPayField);
+            this.Controls.Add(this.Semi_Monthly_Salary_field);
+            this.Controls.Add(this.Deduction_due_to_underTimeField);
+            this.Controls.Add(this.Deductible_under_time_mins_field);
+            this.Controls.Add(this.TotalUnderTimeMins_Field);
+            this.Controls.Add(this.Deduction_due_toLate_field);
+            this.Controls.Add(this.DeductibleLateMins_Field);
+            this.Controls.Add(this.TotalMinsLate_field);
+            this.Controls.Add(this.days_absent_field);
+            this.Controls.Add(this.OvertimePay_field);
+            this.Controls.Add(this.PayableOTmin_Field);
+            this.Controls.Add(this.Special_Hol_field);
+            this.Controls.Add(this.Holiday_Credited_field);
+            this.Controls.Add(this.days_of_work_Field);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -544,16 +701,19 @@
             this.Controls.Add(this.comboBox1_payroll_period);
             this.Controls.Add(this.button3);
             this.Name = "PayrollCalculatorfrm";
-            this.Text = "GeneratePaycheck";
+            this.Text = "Transact Payroll";
             this.Load += new System.EventHandler(this.PayrollCalculatorfrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VL_numeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SL_numeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Emergency_Leave_numeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bereavement_numeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBox1_payroll_period;
         private System.Windows.Forms.Label label1;
@@ -572,36 +732,51 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox days_of_work_Field;
+        private System.Windows.Forms.TextBox Holiday_Credited_field;
+        private System.Windows.Forms.TextBox Special_Hol_field;
+        private System.Windows.Forms.TextBox PayableOTmin_Field;
+        private System.Windows.Forms.TextBox OvertimePay_field;
+        private System.Windows.Forms.TextBox days_absent_field;
+        private System.Windows.Forms.TextBox TotalMinsLate_field;
+        private System.Windows.Forms.TextBox DeductibleLateMins_Field;
+        private System.Windows.Forms.TextBox Deduction_due_toLate_field;
+        private System.Windows.Forms.TextBox TotalUnderTimeMins_Field;
+        private System.Windows.Forms.TextBox Deductible_under_time_mins_field;
+        private System.Windows.Forms.TextBox Deduction_due_to_underTimeField;
+        private System.Windows.Forms.TextBox Semi_Monthly_Salary_field;
+        private System.Windows.Forms.TextBox GrossPayField;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox SSSdeductionField;
+        private System.Windows.Forms.TextBox Philhealth_Deduction_field;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label PagIbigDeduction_field;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox TotalBenefitsDeductionField;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.NumericUpDown VL_numeric;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.NumericUpDown SL_numeric;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.NumericUpDown Emergency_Leave_numeric;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.NumericUpDown Bereavement_numeric;
+        private System.Windows.Forms.TextBox AdjustmentAmountField;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox Previous_Grosspay_field;
     }
 }

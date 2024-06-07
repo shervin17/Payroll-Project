@@ -101,10 +101,12 @@ namespace PayrollV3
                             Accrued_vacationleave = 0,
                             Remaining_SL = 5,
                             Remaining_VL = 0,
-                            DateStarted = DateTime.Now
+                            DateStarted = date_started,
+                            Emergency_leave = 5,
+                            Bereavement_leave_used = 0,
                         };
 
-                        string insertTableQuery3 = @"insert into leaves (accrued_sickleave ,accrued_vacationLeave, remaining_SL, remaining_VL, date_started) values (@Accrued_sickleave, @Accrued_vacationLeave, @Remaining_SL,@Remaining_VL, @DateStarted); select cast (scope_identity() as int);";
+                        string insertTableQuery3 = @"insert into leaves (accrued_sickleave ,accrued_vacationLeave, remaining_SL, remaining_VL, date_started, emergency_leave, bereavement_leave_used) values (@Accrued_sickleave, @Accrued_vacationLeave, @Remaining_SL,@Remaining_VL, @DateStarted, @Emergency_leave , @Bereavement_leave_used); select cast (scope_identity() as int);";
                         int leaves_id = connection.QuerySingle<int>(insertTableQuery3, leaves, transaction);
 
                         //For Employee 

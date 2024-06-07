@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,6 +70,32 @@
     <Compile Include="frmCreateEmployeeRecord.Designer.cs">
       <DependentUpon>frmCreateEmployeeRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="LeavesRepo.cs" />
+    <Compile Include="LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginAccountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LoginAccountControl.Designer.cs">
+      <DependentUpon>LoginAccountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OTRequestForm.Designer.cs">
+      <DependentUpon>OTRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTtrackerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OTtrackerForm.Designer.cs">
+      <DependentUpon>OTtrackerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OverTimeEntryRepo.cs" />
     <Compile Include="PagIbigContribCalculator.cs" />
     <Compile Include="Payroll.cs" />
     <Compile Include="PayrollCalculatorfrm.cs">
@@ -113,6 +140,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreateEmployeeRecord.resx">
       <DependentUpon>frmCreateEmployeeRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginAccountControl.resx">
+      <DependentUpon>LoginAccountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OTRequestForm.resx">
+      <DependentUpon>OTRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OTtrackerForm.resx">
+      <DependentUpon>OTtrackerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PayrollCalculatorfrm.resx">
       <DependentUpon>PayrollCalculatorfrm.cs</DependentUpon>

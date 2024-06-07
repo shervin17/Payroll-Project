@@ -82,7 +82,7 @@ namespace PayrollV3
             HolidayCredited= holiday_credited,
             SpecialHolidayCredited= special_holiday_credited,
             TotalMinsLate= total_mins_late,
-            TotalUndertimeLate =total_undertime_mins,
+            TotalUndertimeMins =total_undertime_mins,
             };
 
 
@@ -157,7 +157,7 @@ namespace PayrollV3
         public int HolidayCredited { get; set; }
         public int SpecialHolidayCredited { get; set; }
         public int TotalMinsLate {get; set; }
-        public int TotalUndertimeLate { get;set; }
+        public int TotalUndertimeMins { get;set; }
         public override string ToString()
         {
             return $"Number of Absents: {NumberOfAbsents}, " +
@@ -168,7 +168,7 @@ namespace PayrollV3
                    $"Holiday Credited: {HolidayCredited}, " +
                    $"Special Holiday Credited: {SpecialHolidayCredited}, " +
                    $"Total Minutes Late: {TotalMinsLate}, " +
-                   $"Total Undertime Late: {TotalUndertimeLate}";
+                   $"Total Undertime Late: {TotalUndertimeMins}";
         }
     }
 

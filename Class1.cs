@@ -41,15 +41,7 @@ namespace PayrollV3
             return $"{Payroll_details_id} , {Salary}, {Daily_rate}, {Hourly_rate} ";
         }
     }
-    public class Leaves
-    { 
-        public int Leaves_id { get; set;}
-        public decimal Accrued_sickleave { get; set; }
-        public decimal Accrued_vacationleave { get; set; }
-        public decimal Remaining_SL {  get; set; }
-        public decimal Remaining_VL { get; set; }
-        public DateTime DateStarted { get; set; }
-    }
+
 
     public class PayrollPeriod
     { 
