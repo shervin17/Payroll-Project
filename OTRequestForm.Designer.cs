@@ -54,7 +54,7 @@
             "TRAININGS OR MEETINGS",
             "Deadline Pressure:",
             "Financial Incentives",
-            "FOR OTHER REASON"});
+            "OTHER REASON"});
             this.comboBox1_reasons.Location = new System.Drawing.Point(99, 23);
             this.comboBox1_reasons.Name = "comboBox1_reasons";
             this.comboBox1_reasons.Size = new System.Drawing.Size(194, 24);
@@ -67,7 +67,6 @@
             this.Reason_Others_field.Name = "Reason_Others_field";
             this.Reason_Others_field.Size = new System.Drawing.Size(343, 139);
             this.Reason_Others_field.TabIndex = 2;
-            this.Reason_Others_field.Text = "Fill this only if you select others reason";
             // 
             // label2
             // 

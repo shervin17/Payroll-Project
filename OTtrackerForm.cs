@@ -66,6 +66,7 @@ namespace PayrollV3
                     Supervisor_id = sup_id,
                 };
                 overTimeEntryRepo.Add(overTimeEntry);
+                MessageBox.Show($"time in saved at {DateTime.Now}");
             }
             else
             {
@@ -74,11 +75,17 @@ namespace PayrollV3
                     MessageBox.Show($"It seems you have time out already at {overTimeEntry.Time_out} ");
                     return;
                 }
+                DialogResult proceedTimeOut = MessageBox.Show("You are about to time out. Proced?","TIME OUT?",MessageBoxButtons.OKCancel,MessageBoxIcon.Exclamation);
+                if(proceedTimeOut == DialogResult.Cancel) {
+                    return;
+                }
 
                 overTimeEntry.Time_out = DateTime.Now;
                 overTimeEntry.Status= Status.COMPLETE.ToString();
 
                  overTimeEntryRepo.Update(overTimeEntry);
+                MessageBox.Show($"time out saved at {DateTime.Now}");
+
             }
         }
         private bool validateLogins()

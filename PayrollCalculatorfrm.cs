@@ -64,9 +64,10 @@ namespace PayrollV3
 
             payrollObj = new Payroll(daily_time_records, payable_Dates,payrollDetails);
             attendanceSummary = payrollObj.GetAttendanceSummary();
+            semi_monthly = Math.Round(payrollDetails.Salary / 2, 2);
             populateFields();
             allowed_leaves = attendanceSummary.NumberOfAbsents == 0? 5: attendanceSummary.NumberOfAbsents + 5;
-            semi_monthly = Math.Round(payrollDetails.Salary / 2, 2);
+            
             
         }
 

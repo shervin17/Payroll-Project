@@ -16,11 +16,11 @@ namespace PayrollV3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            /*  Application.Run(new frmCreateEmployeeRecord());*/
+            /*Application.Run(new frmCreateEmployeeRecord());*/
             /*    Application.Run(new DailyTimeRecordApp());*/
-         /*   Application.Run(new Payrollform());*/
-          /*  Application.Run(new UpdatePayrollDaysfrm());*/
-          Application.Run(new OTtrackerForm("no reason", 2));
+            Application.Run(new Payrollform());
+            /*  Application.Run(new UpdatePayrollDaysfrm());*/
+            /*     Application.Run(new LogForm());*/
         }
     }
 }

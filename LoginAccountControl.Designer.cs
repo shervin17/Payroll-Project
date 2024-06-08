@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.username_field = new System.Windows.Forms.TextBox();
             this.password_field = new System.Windows.Forms.TextBox();
-            this.loginBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -67,27 +66,16 @@
             this.password_field.Size = new System.Drawing.Size(186, 22);
             this.password_field.TabIndex = 3;
             // 
-            // loginBTN
-            // 
-            this.loginBTN.Location = new System.Drawing.Point(138, 114);
-            this.loginBTN.Name = "loginBTN";
-            this.loginBTN.Size = new System.Drawing.Size(75, 23);
-            this.loginBTN.TabIndex = 4;
-            this.loginBTN.Text = "login";
-            this.loginBTN.UseVisualStyleBackColor = true;
-            this.loginBTN.Click += new System.EventHandler(this.loginBTN_Click);
-            // 
             // LoginAccountControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.loginBTN);
             this.Controls.Add(this.password_field);
             this.Controls.Add(this.username_field);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "LoginAccountControl";
-            this.Size = new System.Drawing.Size(333, 166);
+            this.Size = new System.Drawing.Size(318, 122);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,6 +87,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox username_field;
         private System.Windows.Forms.TextBox password_field;
-        private System.Windows.Forms.Button loginBTN;
     }
 }

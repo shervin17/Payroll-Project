@@ -64,6 +64,12 @@
     <Compile Include="EmployeeCalendarDatesRepo.cs" />
     <Compile Include="EmployeePayrollDetailsRepo.cs" />
     <Compile Include="EmployeeRepository.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCreateEmployeeRecord.cs">
       <SubType>Form</SubType>
     </Compile>

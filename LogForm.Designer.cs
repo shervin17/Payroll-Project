@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.shift1 = new PayrollV3.shift();
+            this.loginAccountControl1 = new PayrollV3.LoginAccountControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // shift1
@@ -39,14 +41,34 @@
             this.shift1.Size = new System.Drawing.Size(8, 8);
             this.shift1.TabIndex = 0;
             // 
+            // loginAccountControl1
+            // 
+            this.loginAccountControl1.Location = new System.Drawing.Point(3, 12);
+            this.loginAccountControl1.Name = "loginAccountControl1";
+            this.loginAccountControl1.Size = new System.Drawing.Size(333, 122);
+            this.loginAccountControl1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(133, 127);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Login";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // LogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(341, 188);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loginAccountControl1);
             this.Controls.Add(this.shift1);
             this.Name = "LogForm";
             this.Text = "LogForm";
+            this.Load += new System.EventHandler(this.LogForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -54,5 +76,7 @@
         #endregion
 
         private shift shift1;
+        private LoginAccountControl loginAccountControl1;
+        private System.Windows.Forms.Button button1;
     }
 }

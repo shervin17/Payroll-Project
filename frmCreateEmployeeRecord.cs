@@ -72,9 +72,10 @@ namespace PayrollV3
                         {
                             Username = username,
                             Password = password,
+                            AdvanceUser= "NO",
                         };
 
-                        string insertTableQuery = @"insert into employee_logins (username, password) values (@Username, @Password); select cast(scope_identity() as int);";
+                        string insertTableQuery = @"insert into employee_logins (username, password,advanceUser) values (@Username, @Password,@AdvanceUser); select cast(scope_identity() as int);";
                         int employee_logins_id = connection.QuerySingle<int>(insertTableQuery, employee_login, transaction);
 
                         //For Payroll_details
