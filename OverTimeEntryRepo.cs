@@ -26,7 +26,7 @@ namespace PayrollV3
 
                 using (SqlConnection connection = DBConnection.getConnection())
                 {
-                    string sqlQuery = "select * from OvertimeTracker  where id = @id and date between @date_from and @date_to";
+                    string sqlQuery = "select * from OvertimeTracker  where employee_id = @id and date between @date_from and @date_to";
                     var objparams = new
                     {
                         id = employee_id,
@@ -34,7 +34,7 @@ namespace PayrollV3
                         date_to = payrollPeriod.Date_to,
                     };
 
-                    list = connection.Query<OverTimeEntry>(sqlQuery).ToList();
+                    list = connection.Query<OverTimeEntry>(sqlQuery,objparams).ToList();
                 }
             }
             catch (Exception e)
@@ -126,6 +126,12 @@ namespace PayrollV3
         public string Reason { get; set; }
 
         public int Supervisor_id { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID: {id}, Employee ID: {Employee_id}, Date: {Date}, Time In: {Time_in}, " +
+                $"Time Out: {Time_out}, Status: {Status}, Reason: {Reason}, Supervisor ID: {Supervisor_id}";
+        }
 
     }
 }

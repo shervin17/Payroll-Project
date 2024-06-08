@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace PayrollV3
         private Leaves leaves;
         private List<EmployeeCalendarDates> calendarDates;
         private EmployeePayrollDetails payroll_details;
+        private List<OverTimeEntry> overTimeEntries;
         private decimal hourly_rate;
         private decimal daily_rate;
         private const decimal REGULAR_OT_MULTIPLIER = 1.25m;
@@ -21,14 +23,38 @@ namespace PayrollV3
         private int total_mins_late;
         private int total_undertime_mins;
 
-        public Payroll(List<DailyTimeRecord> records, List<EmployeeCalendarDates> calendarDates,EmployeePayrollDetails payrollDetails ) 
+        public Payroll(List<DailyTimeRecord> records, List<EmployeeCalendarDates> calendarDates,EmployeePayrollDetails payrollDetails,List<OverTimeEntry> overTimeEntries ) 
         { 
         this.records = records;
         this.calendarDates = calendarDates;
+        this.overTimeEntries = overTimeEntries;
         hourly_rate = payrollDetails.Hourly_rate;
         daily_rate = payrollDetails.Daily_rate;
         }
 
+        public decimal[] getOTComputation() {
+
+            int TotalPayableOTmins = 0;
+            decimal OTpay = 0;
+
+            foreach(EmployeeCalendarDates calendarDate in calendarDates)
+            {
+                foreach ( OverTimeEntry entry in overTimeEntries ) 
+                {
+                    if (entry.Date == calendarDate.Date)
+                    {
+                       int OTmins=  getOTmins(entry);
+                        TotalPayableOTmins += OTmins;
+                       string category = calendarDate.Category;
+                       decimal rate = category == "REGULAR" ? REGULAR_OT_MULTIPLIER : category == "SPECIAL_HOLIDAY" ? SPECIAL_OT_MULTIPLIER : category == "HOLIDAY" ? HOLIDAY_OT_MULTIPLIER : 0;
+                       OTpay+= computeOTpay(OTmins, rate);
+                        
+                    }
+                }
+            }
+
+            return new decimal[] { TotalPayableOTmins,OTpay};
+        }
         
         public AttendanceSummary GetAttendanceSummary() {
             AttendanceSummary summary = null;
@@ -131,20 +157,24 @@ namespace PayrollV3
             decimal deduction_per_minute = hourly_rate / 60;
             return Math.Round((deduction_per_minute * minutes), 2);
         }
-        private int getOTmins(DailyTimeRecord dailyTimeRecord)
+        private int getOTmins(OverTimeEntry timeEntry)
         {
-            int OT_mins = (int)(dailyTimeRecord.Time_out - dailyTimeRecord.Shift_out).TotalMinutes;
+            int OT_mins = (int)(timeEntry.Time_out - timeEntry.Time_in).TotalMinutes;
             if (OT_mins < 60)
                 return 0;
-            return OT_mins;
+            return (OT_mins/30 )* 30;
         }
 
 
-        private decimal computeOTpay(int minutes)
+        private decimal computeOTpay(int minutes, decimal overtimeRate)
         {
-            decimal rate_per_30mins = hourly_rate / 2;
-            int payable_30_mins_instances = minutes / 30;
-            return payable_30_mins_instances * rate_per_30mins;
+            Debug.WriteLine("compute OT "+minutes.ToString() + " " + overtimeRate.ToString());
+            decimal pay_per_30mins = (hourly_rate / 2);
+            int payable_30mins_instance = minutes / 30;
+
+            decimal OTpay = pay_per_30mins * payable_30mins_instance * overtimeRate;
+
+            return Math.Round(OTpay,2);
         }
     }
     public class AttendanceSummary

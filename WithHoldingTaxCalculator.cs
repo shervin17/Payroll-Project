@@ -26,7 +26,7 @@ namespace PayrollV3
 
 
         }
-        public decimal getSemiMonthlyTax(decimal semi_monthly_income)
+        public decimal GetSemiMonthlyTax(decimal semi_monthly_income)
         {
             decimal approx_annual_income = semi_monthly_income * 24;
             decimal monthly_tax = 0;

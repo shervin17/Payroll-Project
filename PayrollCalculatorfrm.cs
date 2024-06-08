@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Dapper;
@@ -15,6 +16,7 @@ namespace PayrollV3
         List<EmployeeCalendarDates> payable_Dates;
         DailyTimeRecordRepository dailyTimeRecordRepository = DailyTimeRecordRepository.Instance();
         List<DailyTimeRecord> daily_time_records;
+        List<OverTimeEntry> over_time_entries;
         Payroll payrollObj;
         EmployeePayrollDetails payrollDetails;
         Leaves leaves;
@@ -25,6 +27,18 @@ namespace PayrollV3
         private decimal grosspay;
         private decimal semi_monthly;
         private decimal adjustments;
+        private decimal overTimePay;
+        private decimal payableOTinMins;
+        private decimal withHoldingTax;
+        private decimal netpay;
+        private decimal total_benefits_deduction;
+        //benefits
+        private SSSContribution sssContribution;
+        private PhilHealthContribution philHealthContribution;
+        private PagIbigContribution pagIbigContribution;
+        
+
+
         public PayrollCalculatorfrm(Employee employee)
         {
             InitializeComponent();
@@ -56,19 +70,33 @@ namespace PayrollV3
                 payrollDetails = EmployeePayrollDetailsRepo.Instance().getByID(employee1.Payroll_details_id);
                 leaves = LeavesRepo.Instance().FindByID(employee1.Leaves_id);
                 dataGridView1.DataSource = daily_time_records;
+                over_time_entries = OverTimeEntryRepo.Instance().GetOverTimeEntriesById(employee1.Id, selected);
+                over_time_entries.ForEach(x => Debug.WriteLine(x.ToString()));
             }
             catch (Exception ex)
             {
                 MessageBox.Show("an error has occured "+ex.Message);
             }
 
-            payrollObj = new Payroll(daily_time_records, payable_Dates,payrollDetails);
+            payrollObj = new Payroll(daily_time_records, payable_Dates,payrollDetails,over_time_entries);
             attendanceSummary = payrollObj.GetAttendanceSummary();
             semi_monthly = Math.Round(payrollDetails.Salary / 2, 2);
             populateFields();
+
+            if (over_time_entries.Count > 0)
+            {
+                decimal []  OTinfo= payrollObj.getOTComputation();
+                payableOTinMins = OTinfo[0];
+                overTimePay = OTinfo[1];
+
+                PayableOTmin_Field.Text = payableOTinMins.ToString();
+                OvertimePay_field.Text = overTimePay.ToString();
+            }
+
             allowed_leaves = attendanceSummary.NumberOfAbsents == 0? 5: attendanceSummary.NumberOfAbsents + 5;
-            
-            
+
+            grosspay = semi_monthly + overTimePay - (attendanceSummary.DeductionDueToLate + attendanceSummary.DeductionDueToUndertime);
+            GrossPayField.Text= grosspay.ToString();
         }
 
         public void populateFields() 
@@ -124,6 +152,8 @@ namespace PayrollV3
         private void button5_Click(object sender, EventArgs e) 
         {
             //apply leaves button
+            withHoldingTax = 0;
+            WithHoldingTaxField.Text = "";
 
             DialogResult dialogResult = MessageBox.Show("This will consume leaves . Do you wish to proceed?","",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if(dialogResult == DialogResult.No) {
@@ -144,9 +174,45 @@ namespace PayrollV3
         }
         private void updateGrossPay() {
 
-            grosspay = semi_monthly + adjustments -( attendanceSummary.DeductionDueToLate + attendanceSummary.DeductionDueToUndertime);
-            MessageBox.Show($" {semi_monthly} + {adjustments} - ({attendanceSummary.DeductionDueToLate} + {attendanceSummary.DeductionDueToUndertime}) = {grosspay}");
+            grosspay = semi_monthly + overTimePay + adjustments -( attendanceSummary.DeductionDueToLate + attendanceSummary.DeductionDueToUndertime);
             GrossPayField.Text= grosspay.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WithholdingTaxCalculator withholdingTaxCalculator = new WithholdingTaxCalculator();
+
+            withHoldingTax = withholdingTaxCalculator.GetSemiMonthlyTax( grosspay );
+
+            WithHoldingTaxField.Text= withHoldingTax.ToString();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //computeNetpay
+            netpay = grosspay - total_benefits_deduction - withHoldingTax;  
+            netPayField.Text= netpay.ToString();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //compute benefits
+            decimal prev_grosspay = 25000m;
+            decimal monthly_grosspay = prev_grosspay + grosspay;
+            
+            pagIbigContribution = PagIbigContributionCalculator.GetPagIbigContribution( monthly_grosspay );
+            philHealthContribution = PhilHealthContribCalculator.GetPhilHealthContribution(monthly_grosspay);
+            sssContribution = SSSContributionCalculator.ComputeSSSContribution( monthly_grosspay );
+
+            total_benefits_deduction = pagIbigContribution.EmployeeShare + philHealthContribution.EmployeeShare + sssContribution.EmployeeShare;
+
+            Previous_Grosspay_field.Text = prev_grosspay.ToString();
+            Philhealth_Deduction_field.Text = philHealthContribution.EmployeeShare.ToString();
+            SSSdeductionField.Text = sssContribution.EmployeeShare.ToString();
+            label.Text = pagIbigContribution.EmployeeShare.ToString();
+
+            TotalBenefitsDeductionField.Text = total_benefits_deduction.ToString();
+
         }
     }
 }

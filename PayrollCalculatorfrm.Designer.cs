@@ -62,20 +62,20 @@
             this.GrossPayField = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.WithHoldingTaxField = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.SSSdeductionField = new System.Windows.Forms.TextBox();
             this.Philhealth_Deduction_field = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.PagIbigDeduction_field = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.PagIbigDeduction_field = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.TotalBenefitsDeductionField = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.netPayField = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -92,6 +92,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.Previous_Grosspay_field = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VL_numeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SL_numeric)).BeginInit();
@@ -377,12 +379,12 @@
             this.label17.TabIndex = 35;
             this.label17.Text = "WithHolding Tax";
             // 
-            // textBox15
+            // WithHoldingTaxField
             // 
-            this.textBox15.Location = new System.Drawing.Point(181, 769);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(163, 22);
-            this.textBox15.TabIndex = 36;
+            this.WithHoldingTaxField.Location = new System.Drawing.Point(181, 769);
+            this.WithHoldingTaxField.Name = "WithHoldingTaxField";
+            this.WithHoldingTaxField.Size = new System.Drawing.Size(163, 22);
+            this.WithHoldingTaxField.TabIndex = 36;
             // 
             // button1
             // 
@@ -392,6 +394,7 @@
             this.button1.TabIndex = 37;
             this.button1.Text = "compute tax";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label18
             // 
@@ -425,12 +428,12 @@
             this.Philhealth_Deduction_field.Size = new System.Drawing.Size(163, 22);
             this.Philhealth_Deduction_field.TabIndex = 41;
             // 
-            // textBox18
+            // PagIbigDeduction_field
             // 
-            this.textBox18.Location = new System.Drawing.Point(183, 663);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(163, 22);
-            this.textBox18.TabIndex = 42;
+            this.PagIbigDeduction_field.Location = new System.Drawing.Point(183, 663);
+            this.PagIbigDeduction_field.Name = "PagIbigDeduction_field";
+            this.PagIbigDeduction_field.Size = new System.Drawing.Size(163, 22);
+            this.PagIbigDeduction_field.TabIndex = 42;
             // 
             // label20
             // 
@@ -441,18 +444,18 @@
             this.label20.TabIndex = 43;
             this.label20.Text = "Philhealth deduction";
             // 
-            // PagIbigDeduction_field
+            // label
             // 
-            this.PagIbigDeduction_field.AutoSize = true;
-            this.PagIbigDeduction_field.Location = new System.Drawing.Point(47, 663);
-            this.PagIbigDeduction_field.Name = "PagIbigDeduction_field";
-            this.PagIbigDeduction_field.Size = new System.Drawing.Size(116, 16);
-            this.PagIbigDeduction_field.TabIndex = 44;
-            this.PagIbigDeduction_field.Text = "PagIbig deduction";
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(47, 663);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(116, 16);
+            this.label.TabIndex = 44;
+            this.label.Text = "PagIbig deduction";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(352, 696);
+            this.button2.Location = new System.Drawing.Point(361, 690);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 45;
@@ -484,16 +487,16 @@
             this.label23.TabIndex = 48;
             this.label23.Text = "NetPay";
             // 
-            // textBox20
+            // netPayField
             // 
-            this.textBox20.Location = new System.Drawing.Point(183, 804);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(163, 22);
-            this.textBox20.TabIndex = 49;
+            this.netPayField.Location = new System.Drawing.Point(183, 804);
+            this.netPayField.Name = "netPayField";
+            this.netPayField.Size = new System.Drawing.Size(163, 22);
+            this.netPayField.TabIndex = 49;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(361, 804);
+            this.button4.Location = new System.Drawing.Point(226, 849);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 50;
@@ -631,11 +634,33 @@
             this.Previous_Grosspay_field.Size = new System.Drawing.Size(163, 22);
             this.Previous_Grosspay_field.TabIndex = 65;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(361, 803);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(124, 23);
+            this.button6.TabIndex = 66;
+            this.button6.Text = "compute net pay";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(359, 663);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(122, 23);
+            this.button7.TabIndex = 67;
+            this.button7.Text = "compute benefits";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // PayrollCalculatorfrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 988);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.Previous_Grosspay_field);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.button5);
@@ -652,20 +677,20 @@
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox20);
+            this.Controls.Add(this.netPayField);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.TotalBenefitsDeductionField);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.PagIbigDeduction_field);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.PagIbigDeduction_field);
             this.Controls.Add(this.Philhealth_Deduction_field);
             this.Controls.Add(this.SSSdeductionField);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox15);
+            this.Controls.Add(this.WithHoldingTaxField);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.GrossPayField);
@@ -748,20 +773,20 @@
         private System.Windows.Forms.TextBox GrossPayField;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox WithHoldingTaxField;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox SSSdeductionField;
         private System.Windows.Forms.TextBox Philhealth_Deduction_field;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox PagIbigDeduction_field;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label PagIbigDeduction_field;
+        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox TotalBenefitsDeductionField;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox netPayField;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
@@ -778,5 +803,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox Previous_Grosspay_field;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
