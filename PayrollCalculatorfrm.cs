@@ -32,6 +32,7 @@ namespace PayrollV3
         private decimal withHoldingTax;
         private decimal netpay;
         private decimal total_benefits_deduction;
+        private decimal final_net_pay;
         //benefits
         private SSSContribution sssContribution;
         private PhilHealthContribution philHealthContribution;
@@ -61,7 +62,7 @@ namespace PayrollV3
         {
             
             selected = comboBox1_payroll_period.SelectedItem as PayrollPeriod;
-            
+            Debug.WriteLine(selected);
             
             try 
             {
@@ -69,7 +70,6 @@ namespace PayrollV3
                 daily_time_records = dailyTimeRecordRepository.findDTRbyEmployeeID(employee1.Id, selected);
                 payrollDetails = EmployeePayrollDetailsRepo.Instance().getByID(employee1.Payroll_details_id);
                 leaves = LeavesRepo.Instance().FindByID(employee1.Leaves_id);
-                dataGridView1.DataSource = daily_time_records;
                 over_time_entries = OverTimeEntryRepo.Instance().GetOverTimeEntriesById(employee1.Id, selected);
                 over_time_entries.ForEach(x => Debug.WriteLine(x.ToString()));
             }
@@ -190,7 +190,13 @@ namespace PayrollV3
         private void button6_Click(object sender, EventArgs e)
         {
             //computeNetpay
-            netpay = grosspay - total_benefits_deduction - withHoldingTax;  
+            if (netpay != 0)
+            {
+                netpay = netpay - withHoldingTax;
+            }
+            else {
+                netpay = grosspay - withHoldingTax;
+            }
             netPayField.Text= netpay.ToString();
         }
 
@@ -209,10 +215,112 @@ namespace PayrollV3
             Previous_Grosspay_field.Text = prev_grosspay.ToString();
             Philhealth_Deduction_field.Text = philHealthContribution.EmployeeShare.ToString();
             SSSdeductionField.Text = sssContribution.EmployeeShare.ToString();
-            label.Text = pagIbigContribution.EmployeeShare.ToString();
+            PagIbigDeduction_field.Text= pagIbigContribution.EmployeeShare.ToString();
 
             TotalBenefitsDeductionField.Text = total_benefits_deduction.ToString();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            netpay = grosspay - total_benefits_deduction;
+            MessageBox.Show($"current netpay excluding withHolding tax: {netpay}");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //submit
+            if (withHoldingTax == 0) {
+                MessageBox.Show("Submitting payroll needs withholding tax computed");
+                return;
+            }
+            final_net_pay = grosspay - total_benefits_deduction - withHoldingTax;
+        }
+        public void AddPayrollTransaction(PayrollTransaction payrollTransaction)
+        {
+
+            using (SqlConnection connection = DBConnection.getConnection())
+            {
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+
+                        string sqlAttendance = " insert into AttendaceSummary values(@absents,@deductibleMinslate,@deductibleUndertimeMins,@deductionDueToLate,@deductionDueToUndertime,@holidayCredited,@specialHolidayCredited,@totalMinsLate,@totalUndertimeMins);" +
+                            " select cast(scope_identity() as int);";
+
+                        var attendanceObj = new
+                        {
+                            absents = attendanceSummary.NumberOfAbsents,
+                            deductibleMinslate = attendanceSummary.DeductibleMinsLate,
+                            deductibleUndertimeMins = attendanceSummary.DeductibleUndertimeMins,
+                            deductionDueToLate = attendanceSummary.DeductionDueToLate,
+                            deductionDueToUndertime = attendanceSummary.DeductionDueToUndertime,
+                            holidayCredited = attendanceSummary.HolidayCredited,
+                            specialHolidayCredited = attendanceSummary.SpecialHolidayCredited,
+                            totalMinsLate = attendanceSummary.TotalMinsLate,
+                            totalUndertimeMins = attendanceSummary.TotalUndertimeMins,
+                        };
+                        int attendance_summary_id = connection.QuerySingle<int>(sqlAttendance,attendanceObj,transaction);
+                        //
+
+                        string sssinsertQuery = "insert into SSSContribution values (@employeeShare,@employerShare,@TotalContribution); select cast(scope_identity() as int);";
+
+
+                        int sss_new_id = connection.QuerySingle<int>(sssinsertQuery,sssContribution,transaction);
+
+                        //
+                        string pagIbiginsert = "insert into PagibigContribution values (@employeeShare,@employerShare,@TotalContribution); select cast(scope_identity() as int);";
+
+  
+                      
+                        int pagIbig_new_id = connection.QuerySingle<int>(pagIbiginsert, pagIbigContribution, transaction);
+
+                        string philhealth_insert = "insert into PhilHealthContribution values (@employeeShare,@employerShare,@TotalContribution); select cast(scope_identity() as int);";
+
+                        int philhealt_new_id = connection.QuerySingle<int>(philhealth_insert,pagIbigContribution, transaction);
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        transaction.Rollback();
+                        Console.WriteLine("Transaction rolled back due to an error: " + ex.Message);
+                        MessageBox.Show("Transaction rolled back due to an error: " + ex.Message);
+                    }
+
+
+                }
+
+
+            }
+
+
+        }
     }
+
+    public class PayrollTransaction {
+       public int Transaction_id { get; set; }
+       public int Employee_id { get; set; }
+       public int Payroll_period_id{ get; set;}
+       public int AttendanceSummary_id { get; set; }
+       public decimal OT_Pay { get; set; }
+       private decimal Total_benefits_deduction { get; set; }
+       public decimal Grosspay { get; set; }
+       public decimal WithHoldingTax { get;set; }
+
+       public int Sss_contrib_id { get; set; }
+       public int PagIbig_contrib_id { get;set; }
+
+       public int Philhealht_contrib_id { get;set;}
+       public decimal NetPay { get; set; }
+    }
+
 }

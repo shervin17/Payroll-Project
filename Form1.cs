@@ -16,5 +16,25 @@ namespace PayrollV3
         {
             InitializeComponent();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            new EmployeeLogin().ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+           new DailyTimeRecordApp().ShowDialog();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            new AdminLogin().ShowDialog();
+        }
     }
 }

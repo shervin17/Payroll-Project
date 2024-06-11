@@ -178,7 +178,8 @@ namespace PayrollV3
         }
     }
     public class AttendanceSummary
-    {
+    {   
+        public int Attendance_summary_id { get; set; }
         public int NumberOfAbsents { get; set; }
         public int DeductibleMinsLate { get; set; }
         public int DeductibleUndertimeMins { get; set; }

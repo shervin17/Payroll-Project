@@ -88,9 +88,10 @@ namespace PayrollV3
                 TimeSpan start_of_shift = shift_start.getTimeSpan();
                 TimeSpan eos = shift_to.getTimeSpan();
                 DateTime dateTimeStart = DateTime.Now.Date.Add(start_of_shift);
-                DateTime dateTimeEnd = DateTime.Now.Add(end_of_shift);
-
-
+                DateTime dateTimeEnd = DateTime.Now.Add(end_of_shift); //ignore
+                DialogResult dialogResult = MessageBox.Show("You are about to time out. Do you wish to continue?", "Timeout", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.Cancel) {
+                    return; }
                 dtr.Shift_in = dateTimeStart;
                 dtr.Shift_out = dateTimeEnd;
                 dtr.Time_out= DateTime.Now;
@@ -131,9 +132,9 @@ namespace PayrollV3
         {
             int result=0;
 
-            string updateString = "update DailyTimeRecord set time_out =@time_out, shift_in=@shift_in,shift_out=@shift_out,status=@status where employee_id= @employee_id";
+            string updateString = "update DailyTimeRecord set time_out =@time_out, shift_in=@shift_in,shift_out=@shift_out,status=@status where employee_id= @employee_id and date=@date";
 
-            var objparam = new { time_out = dtr.Time_out, shift_in = dtr.Shift_in , shift_out= dtr.Shift_out, status = dtr.Status , employee_id= current_employee_id};
+            var objparam = new { time_out = dtr.Time_out, shift_in = dtr.Shift_in , shift_out= dtr.Shift_out, status = dtr.Status , employee_id= current_employee_id, date=dtr.Date};
 
             try
             {

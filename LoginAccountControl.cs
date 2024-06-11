@@ -48,6 +48,9 @@ namespace PayrollV3
             return user_id;
         }
 
+        private void LoginAccountControl_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
